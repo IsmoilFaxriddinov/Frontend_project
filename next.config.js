@@ -1,10 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true, // ✅ ESLint xatolariga to‘xtamasin
-  },
-  typescript: {
-    ignoreBuildErrors: true, // ✅ TypeScript xatolariga to‘xtamasin
+  images: {
+    domains: ["localhost"], // 👈 localhost:1337 dan rasm olishga ruxsat
   },
 };
 

@@ -1,12 +1,11 @@
 export async function getCoreItems() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/core-items?populate=*`, {
-    cache: "no-store",
-  });
+  const res = await fetch("http://localhost:1337/api/core-items?populate=image");
+  const json = await res.json();
 
-  if (!res.ok) {
-    throw new Error("Core maʼlumotlarini olishda xatolik yuz berdi");
-  }
-
-  const data = await res.json();
-  return data.data;
+  return json.data.map((item: any) => ({
+    id: item.id,
+    title: item.title, // ✅ attributes emas!
+    Description: item.Description,
+    image: item.image, // yoki item.image?.url
+  }));
 }

@@ -1,12 +1,20 @@
 export async function getSpecializedItems() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/specialized-items?populate=*`, {
+  const res = await fetch("http://localhost:1337/api/specialized-items?populate=*", {
     cache: "no-store",
   });
 
   if (!res.ok) {
     throw new Error("Specialized maʼlumotlarini olishda xatolik yuz berdi");
+  
   }
 
   const data = await res.json();
-  return data.data;
+
+
+  return data.data.map((item: any) => ({
+    id: item.id,
+    title: item.title, // ✅ `attributes.title` emas, to'g'ridan-to'g'ri `title`
+    Description: item.Description || [],
+    image: item.image || {},
+  }));
 }
