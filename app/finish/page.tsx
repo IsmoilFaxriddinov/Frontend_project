@@ -7,7 +7,6 @@ export default function FinishPage() {
   const router = useRouter();
 
   useEffect(() => {
-    // Sahifaga kirganda tepaga scroll qiladi
     window.scrollTo(0, 0);
   }, []);
 

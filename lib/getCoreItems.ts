@@ -4,8 +4,8 @@ export async function getCoreItems() {
 
   return json.data.map((item: any) => ({
     id: item.id,
-    title: item.title, // ✅ attributes emas!
+    title: item.title,
     Description: item.Description,
-    image: item.image, // yoki item.image?.url
+    image: item.image,
   }));
 }

@@ -13,7 +13,7 @@ export async function getSpecializedItems() {
 
   return data.data.map((item: any) => ({
     id: item.id,
-    title: item.title, // ✅ `attributes.title` emas, to'g'ridan-to'g'ri `title`
+    title: item.title,
     Description: item.Description || [],
     image: item.image || {},
   }));
